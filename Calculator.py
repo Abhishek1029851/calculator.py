@@ -1,7 +1,5 @@
 import tkinter as tk
 
-# --------------------------- Functions ---------------------------
-
 def click(event):
     if entry.get() == "Error":
         entry.delete(0, tk.END)
@@ -24,20 +22,14 @@ def calculate():
         entry.delete(0, tk.END)
         entry.insert(0, "Error")
 
-# --------------------------- GUI Setup ---------------------------
-
 root = tk.Tk()
 root.title("Smart Calculator")
 root.geometry("360x500")
 root.resizable(False, False)
 root.configure(bg="#2c3e50")
 
-# --------------------------- Entry Display ---------------------------
-
 entry = tk.Entry(root, font=("Consolas", 24), bd=8, relief=tk.RIDGE, justify='right')
 entry.pack(fill=tk.BOTH, pady=20, padx=10, ipady=10)
-
-# --------------------------- Button Layout ---------------------------
 
 buttons = [
     ['C', '←', '%', '/'],
@@ -54,8 +46,6 @@ colors = {
     'bg': '#2c3e50',
     'text': 'white'
 }
-
-# --------------------------- Button Creation ---------------------------
 
 for row_values in buttons:
     row = tk.Frame(root, bg=colors['bg'])
@@ -82,8 +72,6 @@ for row_values in buttons:
             btn.config(command=backspace)
         else:
             btn.bind('<Button-1>', click)
-
-# --------------------------- Start GUI ---------------------------
 
 root.mainloop()
 
